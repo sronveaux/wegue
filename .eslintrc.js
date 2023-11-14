@@ -7,6 +7,7 @@ module.exports = {
     // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
     'plugin:vue/essential',
     'plugin:vuetify/recommended',
+    'plugin:@intlify/vue-i18n/recommended',
     '@vue/standard'
   ],
   rules: {
@@ -31,6 +32,21 @@ module.exports = {
     'keyword-spacing': process.env.NODE_ENV === 'development' ? 'warn' : 'error',
     'arrow-spacing': process.env.NODE_ENV === 'development' ? 'warn' : 'error'
     /* eslint-enable quote-props */
+  },
+  settings: {
+    'vue-i18n': {
+      localeDir: [
+        {
+          pattern: './src/locales/*.json',
+          localeKey: 'file'
+        },
+        {
+          pattern: './app/locales/*.json',
+          localeKey: 'file'
+        }
+      ],
+      messageSyntaxVersion: '^8.0.0'
+    }
   },
   parserOptions: {
     parser: '@babel/eslint-parser'
